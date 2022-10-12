@@ -70,7 +70,7 @@ export default function Login() {
         // The signed-in user info.
         const user = result.user;
         LocalStorageService.setCurrentUser(user);
-        // navigate("/");
+        navigate("/home");
         // ...
       })
       .catch((error) => {
@@ -100,7 +100,7 @@ export default function Login() {
           message: "Logged in successfully",
           severity: "success",
         });
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
