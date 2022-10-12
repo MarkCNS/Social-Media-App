@@ -80,7 +80,7 @@ const SignUpForm = () => {
           gender: values.gender,
           status: values.status,
         });
-        navigate("/");
+        navigate("/home");
         // ...
       })
       .catch((error) => {

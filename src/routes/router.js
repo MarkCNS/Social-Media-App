@@ -15,10 +15,10 @@ function RoutePages() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route element={<Privateroutes />}>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/home" element={<Homepage />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/watch" element={<Watch />} />
           <Route path="/marketplace" element={<Marketplace />} />

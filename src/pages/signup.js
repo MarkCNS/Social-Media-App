@@ -23,7 +23,7 @@ export default function SignUp() {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        navigate("/");
+        navigate("/home");
         // ...
       })
       .catch((error) => {

@@ -22,14 +22,14 @@ import LocalStorageService from "../../util/localStorageService";
 const auth = getAuth();
 
 const pages = [
-  { title: "Home", path: "/" },
+  { title: "Home", path: "/home" },
   { title: "Notification", path: "/notification" },
   { title: "Watch", path: "/watch" },
   { title: "Marketplace", path: "/marketplace" },
   { title: "Groups", path: "/groups" },
   { title: "Messenger", path: "/messenger" },
   { title: "Live", path: "/live" },
-  { title: "Login", path: "/login" },
+  { title: "Login", path: "/" },
   { title: "SignUp", path: "/signup" },
 ];
 const settings = ["Logout"];
@@ -65,7 +65,7 @@ const ResponsiveAppBar = () => {
       .then(() => {
         // localStorage.clear();
         LocalStorageService.clearToken();
-        navigate("/login");
+        navigate("/");
         // Sign-out successful.
       })
       .catch((error) => {

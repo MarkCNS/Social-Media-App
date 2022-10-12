@@ -29,7 +29,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import LocalStorageService from "../util/localStorageService";
 import { useGetUserById } from "../hooks/useGetUserById";
 
-export default function SignInSide() {
+export default function Login() {
   // const [email, setEmail] = useState(null);
   // const [password, setPassword] = useState(null);
   const auth = getAuth();

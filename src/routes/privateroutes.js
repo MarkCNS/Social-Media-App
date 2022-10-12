@@ -12,7 +12,7 @@ const Privateroutes = () => {
           <Outlet />
         </SiteLayout>
       ) : (
-        <Navigate to={"/login"} />
+        <Navigate to={"/"} />
       )}
     </>
   );
