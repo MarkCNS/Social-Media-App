@@ -90,7 +90,6 @@ export default function SignInSide() {
 
   const signInWithEmailAndPass = async (email, password) => {
     setLoading(true);
-    persistState();
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -123,8 +122,8 @@ export default function SignInSide() {
     // setEmail(null);
   };
 
-  const persistState = (email, password) => {
-    setPersistence(auth, browserSessionPersistence, email, password)
+  const persistState = async (email, password) => {
+    await setPersistence(auth, browserSessionPersistence)
       .then(() => {
         // Existing and future Auth states are now persisted in the current
         // session only. Closing the window would clear any existing state even
@@ -134,7 +133,7 @@ export default function SignInSide() {
         // navigate("/");
         LocalStorageService.setToken(true);
         // return signInWithEmailAndPassword(auth, email, password);
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPass(email, password);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -248,7 +247,8 @@ export default function SignInSide() {
                 // alert(JSON.stringify(values, null, 2));
                 // setOpen(true);
                 // console.log(values);
-                signInWithEmailAndPass(values.email, values.password);
+                // signInWithEmailAndPass(values.email, values.password);
+                persistState(values.email, values.password);
                 // signinwithGoogle();
                 // createUserWithEmailAndPassword(values.email, values.password);
               }}
