@@ -88,9 +88,9 @@ export default function SignInSide() {
       });
   }
 
-  const signInWithEmailAndPass = async (email, password) => {
+  const signInWithEmailAndPass = (email, password) => {
     setLoading(true);
-    await signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -245,12 +245,9 @@ export default function SignInSide() {
               validationSchema={SignInSchema}
               onSubmit={(values) => {
                 // alert(JSON.stringify(values, null, 2));
-                // setOpen(true);
-                // console.log(values);
+
                 // signInWithEmailAndPass(values.email, values.password);
                 persistState(values.email, values.password);
-                // signinwithGoogle();
-                // createUserWithEmailAndPassword(values.email, values.password);
               }}
             >
               {(props) => (

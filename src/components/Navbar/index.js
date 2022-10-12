@@ -20,7 +20,6 @@ import { getAuth, signOut } from "firebase/auth";
 import LocalStorageService from "../../util/localStorageService";
 
 const auth = getAuth();
-const getUser = LocalStorageService.getCurrentUser();
 
 const pages = [
   { title: "Home", path: "/" },
@@ -39,6 +38,8 @@ const settings = ["Logout"];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  const getUser = LocalStorageService.getCurrentUser();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -55,12 +56,11 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const navigate = useNavigate();
   const handlePath = (path) => {
     navigate(`${path}`);
   };
 
-  function signOutAcc() {
+  const signOutAcc = () => {
     signOut(auth)
       .then(() => {
         // localStorage.clear();
@@ -71,7 +71,7 @@ const ResponsiveAppBar = () => {
       .catch((error) => {
         // An error happened.
       });
-  }
+  };
 
   return (
     <AppBar
