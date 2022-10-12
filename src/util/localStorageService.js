@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 const LocalStorageService = (function () {
   let _service;
   function _getService() {
@@ -23,6 +22,7 @@ const LocalStorageService = (function () {
   function _clearToken() {
     localStorage.removeItem("access_token");
     localStorage.removeItem("user_type");
+    localStorage.removeItem("current_user");
   }
 
   return {
