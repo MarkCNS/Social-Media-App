@@ -383,8 +383,13 @@ export default function SignInSide() {
                     >
                       Not Registered Yet?
                     </Typography>
-                    <Link href="#" fontFamily="Nunito Sans" variant="body2">
-                      {"Create an account"}
+                    <Link
+                      onClick={() => navigate("/signup")}
+                      href="#"
+                      fontFamily="Nunito Sans"
+                      variant="body2"
+                    >
+                      Create an account
                     </Link>
                   </Box>
                 </Form>
