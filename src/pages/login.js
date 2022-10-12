@@ -255,6 +255,7 @@ export default function SignInSide() {
             >
               {(props) => (
                 <Form
+                  autoComplete="off"
                   onSubmit={props.handleSubmit}
                   style={{
                     display: "flex",
@@ -267,7 +268,6 @@ export default function SignInSide() {
                     required
                     fullWidth
                     autoComplete="email"
-                    autoFocus
                     size="small"
                     id="email"
                     name="email"
