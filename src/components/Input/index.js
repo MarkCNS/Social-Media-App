@@ -110,6 +110,7 @@ const Input = (props) => {
             justifyContent: "space-between",
             gap: "15px",
             alignItems: "center",
+            flexWrap: "wrap",
           }}
         >
           <Avatar
@@ -189,7 +190,12 @@ const Input = (props) => {
             {snackbar?.message}
           </Alert>
         </Snackbar>
-        <Box display="flex" justifyContent="space-evenly" mt={2}>
+        <Box
+          display="flex"
+          justifyContent="space-evenly"
+          mt={2}
+          flexWrap="wrap"
+        >
           <Button
             onClick={handleOpen}
             startIcon={<VideocamIcon color="error" />}

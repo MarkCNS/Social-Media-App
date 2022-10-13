@@ -88,9 +88,9 @@ export default function Login() {
       });
   }
 
-  const signInWithEmailAndPass = (email, password) => {
+  const signInWithEmailAndPass = async (email, password) => {
     setLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -100,6 +100,7 @@ export default function Login() {
           message: "Logged in successfully",
           severity: "success",
         });
+        // persistState();
         navigate("/home");
       })
       .catch((error) => {
@@ -122,21 +123,15 @@ export default function Login() {
     // setEmail(null);
   };
 
-  const persistState = async (email, password) => {
-    await setPersistence(auth, browserSessionPersistence)
+  const persistState = (email, password) => {
+    setPersistence(auth, browserSessionPersistence)
       .then(() => {
-        // Existing and future Auth states are now persisted in the current
-        // session only. Closing the window would clear any existing state even
-        // if a user forgets to sign out.
-        // ...
-        // New sign-in will be persisted with session persistence.
         // navigate("/");
         LocalStorageService.setToken(true);
         // return signInWithEmailAndPassword(auth, email, password);
         return signInWithEmailAndPass(email, password);
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
       });
