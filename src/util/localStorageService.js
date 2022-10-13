@@ -22,7 +22,7 @@ const LocalStorageService = (function () {
   function _clearToken() {
     localStorage.removeItem("access_token");
     localStorage.removeItem("user_type");
-    localStorage.removeItem("current_user");
+    // localStorage.removeItem("current_user");
   }
 
   return {
